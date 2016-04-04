@@ -1,5 +1,6 @@
 setwd("~/Documents/Python-Projects/sentiment_analysis/airline-twitter-sentiment")
 # Q. how can we predict the sentiment of tweets?
+# Q. what columns/value/trends are in the data given?
 library("RSQLite")
 
 # Import Data from SQL --------
@@ -111,7 +112,7 @@ head(unique(p1$tweet_coord))
 # only 7% of data have coordinates, not enough to be useful
 
 # Visualize location of Tweets -----
-# clean up names
+# clean up names for geocoding
 sumData$timezone<-as.character(sumData$timezone)
 sumData$timezone[4]<-c('Atikokan, Canada')
 sumData$timezone[5]<-c('Boise, ID')
@@ -148,7 +149,7 @@ g2 + xlim(-125, -65) + ylim(25, 50)
 
 # Exploratory Data Analysis Summary ------
 # most tweets are negative
-# United as the most tweets, Virgin America has the least tweets
+# United has the most tweets, Virgin America has the least tweets
 # Tweets about United, US Air, and American are mostly negative.
 # Virgin America has the largest proportion of positive tweets
 #  37% of tweets have no specified reason. Of the specified reasons customer service issue and late flight most common
@@ -157,3 +158,7 @@ g2 + xlim(-125, -65) + ylim(25, 50)
 # American, US Airways tweets negative due to customer service issues
 # United equal tweets devoted to customer service issues and late flight
 # most tweets (94%) are not retweeted.
+# most tweets from Eastern U.S., top 75% of tweets from U.S., 7% from Quito capital of Ecudaor?!
+# airline_sentiment_gold, negativereason_gold, tweet_coord are mostly empty
+# 40-30% values also missing from negativereason, tweet_location, and user_timezone
+# top retweets are negative concerning Delta and US Air

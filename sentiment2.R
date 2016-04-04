@@ -15,7 +15,7 @@ alltables
 # get the Tweets table as a data.frame
 p1 = dbGetQuery( con,'select * from Tweets' )
 # count the number of Tweets in the SQLite table
-
+str(p1)
 library(dplyr)
 # only look at columns with sentiment, reason, airline, text
 data = select(p1,airline_sentiment, negativereason, airline, text)
@@ -26,7 +26,7 @@ head(data)
 positive = data[data$airline_sentiment=='positive',]
 negative = data[data$airline_sentiment == 'negative',]
 neutral = data[data$airline_sentiment == 'neutral',]
-empty = data[data$airline_sentiment == '',]
+
 library(tm); library(SnowballC)
 library(wordcloud)
 
